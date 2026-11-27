@@ -1,3 +1,41 @@
+# 🏺 Hidden History edition (fork adaptation)
+
+> This fork adds **`hidden-history/`**: a self-contained 3D globe of ancient and megalithic sites, inspired by BassForge's paid [Hidden History map](https://www.bassforge.us) (400+ sites, ~$7 Black Friday bundle) and his short ["Baalbek Dethroned: New Largest Megaliths Found in Egypt"](https://youtube.com/shorts/EboskmcEfmk). Built free instead of buying the bundle.
+>
+> **Live:** https://azjhf-dev.github.io/gods-eye-view/ (served from the `gh-pages` branch)
+>
+> **Upstream pinned:** [bilawalsidhu/gods-eye-view](https://github.com/bilawalsidhu/gods-eye-view) @ commit [`209563d6`](https://github.com/bilawalsidhu/gods-eye-view/commit/209563d6) (2026-11-26). The full upstream app is untouched below; the adaptation is entirely inside `hidden-history/` and the `gh-pages` branch.
+
+## What it is
+
+- 39 geo-located sites: megaliths & quarries, temples, pyramids, stone circles, underground/rock-cut, submerged/anomalous
+- Every node carries sources; **DOCUMENTED** vs **DISPUTED** labels separate mainstream archaeology from creator/alternative claims
+- Starts on Egypt with the Minya quarry colossi (28°10'32.21"N 30°46'35.91"E, coordinates read from the short's first 3 seconds), Baalbek, Aswan, and 36 more
+- Click a node for a dossier; layer filters and a DOCUMENTED/DISPUTED evidence toggle; mobile-first with pinch zoom + buttons
+
+## Run it
+
+Any static server:
+
+```bash
+cd hidden-history
+python3 -m http.server 8000   # then open http://localhost:8000
+```
+
+Opening `hidden-history/index.html` directly also works (data is inlined in `data/signals.js`).
+
+## Data model
+
+`hidden-history/data/signals.json` (canonical; `signals.js` is the file:// fallback):
+
+- `nodes[]` — id, name, category, lat/lng, place, `tonnage` (largest stone, drives point size), `amount_label`, `status` (`fact`=documented / `inference`=disputed), summary, sources
+- `arcs[]` — labelled links between sites (record claims, technique contrasts)
+- `insights[]` — open questions with labelled status
+
+Adapted from God's-Eye View: The AI Trade (money edition, gods-eye-money.surge.sh), same globe.gl base. Upstream God's-Eye View is MIT-licensed (see LICENSE); "God's Eye View" is a trademark of Metaversity LLC, used under license by Halfpixel, Inc.
+
+---
+
 <div align="center">
 
 # 🌐 God's Eye View

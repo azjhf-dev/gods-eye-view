@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>God's-Eye View: Hidden History</title>
+  <meta name="description" content="Geo-located ancient and megalithic sites on a 3D globe. Every site sourced, every disputed claim labelled." />
+  <link rel="stylesheet" href="src/style.css" />
+  <script src="https://unpkg.com/globe.gl@2.46.2/dist/globe.gl.min.js"></script>
+</head>
+<body>
+  <div id="globe"></div>
+
+  <aside id="panel">
+    <header>
+      <h1>GOD'S-EYE VIEW</h1>
+      <p class="sub">hidden history edition &middot; ancient sites, geo-located</p>
+      <p class="meta-line" id="data-date"></p>
+    </header>
+
+    <section id="legend">
+      <h2>Layers</h2>
+      <div id="filters"></div>
+      <h2>Evidence</h2>
+      <div class="evidence-toggle">
+        <label><input type="checkbox" id="show-fact" checked /> <span class="badge fact">DOCUMENTED</span></label>
+        <label><input type="checkbox" id="show-inference" checked /> <span class="badge inference">DISPUTED</span></label>
+      </div>
+    </section>
+
+    <section id="insights">
+      <h2>Open questions <span class="hint">(disputed claims, labelled)</span></h2>
+      <div id="insight-list"></div>
+    </section>
+
+    <footer>
+      <p id="disclaimer"></p>
+    </footer>
+  </aside>
+
+  <div id="detail" class="hidden">
+    <button id="detail-close" aria-label="close">&times;</button>
+    <div id="detail-body"></div>
+  </div>
+
+  <div id="fatal" class="hidden"></div>
+
+  <button id="panel-toggle" aria-label="toggle panel">LAYERS &#9776;</button>
+  <div id="zoom-controls">
+    <button id="zoom-in" aria-label="zoom in">+</button>
+    <button id="zoom-out" aria-label="zoom out">&minus;</button>
+  </div>
+
+  <script src="data/signals.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>
